@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Draggable } from './Draggable';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export const Single = () => (
+  <Draggable
+    onDragStart={(rect) => { console.log('onDragStart => ', rect) }}
+    onDragEnd={(rect) => { console.log('onDragEnd => ', rect) }}
+  >
+    <div>Draggable</div>
+  </Draggable>
+);
 
-export default App;
+export const Multiple = () => (
+  <main>
+    <Draggable onDragStart={(rect) => { console.log('onDragStart => ', rect) }}>
+      <div>Draggable 1</div>
+    </Draggable>
+
+    <Draggable
+      style={{ left: '200px', top: '200px' }}
+    >
+      <div style={{ backgroundColor: '#2196f3' }}>Draggable 2</div>
+    </Draggable>
+  </main>
+);
