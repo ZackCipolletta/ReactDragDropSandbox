@@ -5,7 +5,7 @@ import { Single, Multiple } from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Single />
+    {/* <Single /> */}
     <Multiple />
   </React.StrictMode>,
   document.getElementById('root')
