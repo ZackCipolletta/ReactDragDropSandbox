@@ -151,3 +151,50 @@ if (w > h) {
 }
 
 export default Multiple;
+
+
+
+// ORIGINAL, W > H
+// const Multiple = () => (
+//   <main>
+
+
+//     <Draggable onDragStart={(rect) => { console.log('onDragStart => ', rect) }} 
+//     style={{left: leftPosition(), top: Math.floor(Math.random() * adjustedH)
+//     }}
+//     >
+//       <div>question 1</div>
+//     </Draggable>
+
+//     <Draggable
+//       style={{ left: leftPosition(), top: Math.floor(Math.random() * adjustedH) }}
+//     >
+//       <div style={{ backgroundColor: '#2196f3' }}>question 2</div>
+//     </Draggable>
+
+//     <Draggable
+//       style={{ left: leftPosition(), top: Math.floor(Math.random() * adjustedH) }}
+//     >
+//       <div style={{ backgroundColor: '#1fb230' }}>question 3</div>
+//     </Draggable>
+
+
+
+// {/* answer divs */}
+//     <Draggable
+//       // style={{ left: left + Math.floor(Math.random() * (right *.8) ), top: Math.floor(Math.random() * adjustedH) }}
+//       style={{ left: rightPosition(), top: Math.floor(Math.random() * adjustedH) }}
+//     >
+//       <div style={{ backgroundColor: '#7a1fb2' }}>Answer 1</div>
+//     </Draggable>
+
+//     <Draggable 
+//       style={{ left: rightPosition(), top: Math.floor(Math.random() * adjustedH) }}
+//     >
+//     <div style={{ backgroundColor: '#e928a9'}}>Answer 2</div>
+//     </Draggable>  
+
+//   </main>
+// );
+
+// export default Multiple;
