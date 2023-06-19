@@ -4,15 +4,16 @@ import './App.css';
 
 // if/then width/height (if w>h: divide l/r, if h>w: divide top/bottom)
 
-
+// if w > h
 const w = window.innerWidth;
 const h = window.innerHeight;
 
-const adjustedW = w * .8;
-const adjustedH = h * .8;
-
 let left;
 let right;
+
+// if h > w
+const adjustedW = w * .8;
+const adjustedH = h * .8;
 
 let top;
 let bottom;
@@ -25,17 +26,7 @@ if (w > h) {
   bottom = h - adjustedH * 0.5
 }
 
-// make object appear anywhere in the page
-// style={{ left: Math.floor(Math.random() * adjustedW), top: Math.floor(Math.random() * adjustedH) }}
-
-
-// This one stays to the right half of the screen.
-{/* <Draggable onDragStart={(rect) => { console.log('onDragStart => ', rect) }} style={{ left: left + Math.floor(Math.random() * left ), top: Math.floor(Math.random() * adjustedH) }} >
-<div>Draggable 2</div>
-
-</Draggable> */}
-
-
+// if w > h
 function rightPosition() {
   const position = left + Math.floor(Math.random() * (right * 0.8));
   
@@ -50,6 +41,7 @@ function leftPosition() {
   return Math.floor(Math.random() * (left * 0.9));
 }
 
+// if h > w
 function topPosition() {
   return Math.floor(Math.random() * (top * 0.9));
 }
@@ -64,57 +56,98 @@ function bottomPosition() {
   return position;
 }
 
+let Multiple;
+if (w > h) {
 
-const style = { left: leftPosition(), top: Math.floor(Math.random() * adjustedH) };
-
-// if h > w
-const Multiple = () => (
-  <main>
-
-
-    <Draggable onDragStart={(rect) => { console.log('onDragStart => ', rect) }} 
-    style={style
-    }
-    >
-      <div>question 1</div>
-    </Draggable>
-
-    <Draggable
-      style={{ left: leftPosition(), top: Math.floor(Math.random() * adjustedH) }}
-    >
-      <div style={{ backgroundColor: '#2196f3' }}>question 2</div>
-    </Draggable>
-
-    <Draggable
-      style={{ left: leftPosition(), top: Math.floor(Math.random() * adjustedH) }}
-    >
-      <div style={{ backgroundColor: '#1fb230' }}>question 3</div>
-    </Draggable>
-
-
-
-{/* answer divs */}
-    <Draggable
-      // style={{ left: left + Math.floor(Math.random() * (right *.8) ), top: Math.floor(Math.random() * adjustedH) }}
-      style={{ left: rightPosition(), top: Math.floor(Math.random() * adjustedH) }}
-    >
-      <div style={{ backgroundColor: '#7a1fb2' }}>Answer 1</div>
-    </Draggable>
-
-    <Draggable 
-      style={{ left: rightPosition(), top: Math.floor(Math.random() * adjustedH) }}
-    >
-    <div style={{ backgroundColor: '#e928a9'}}>Answer 2</div>
-    </Draggable>  
-
-  </main>
-);
-
-// else if w > h
-// stuff with vertical format
+  Multiple = () => (
+    <main>
+  
+  
+      <Draggable onDragStart={(rect) => { console.log('onDragStart => ', rect) }} 
+      style={{left: leftPosition(), top: Math.floor(Math.random() * adjustedH)
+      }}
+      >
+        <div>question 1</div>
+      </Draggable>
+  
+      <Draggable
+        style={{ left: leftPosition(), top: Math.floor(Math.random() * adjustedH) }}
+      >
+        <div style={{ backgroundColor: '#2196f3' }}>question 2</div>
+      </Draggable>
+  
+      <Draggable
+        style={{ left: leftPosition(), top: Math.floor(Math.random() * adjustedH) }}
+      >
+        <div style={{ backgroundColor: '#1fb230' }}>question 3</div>
+      </Draggable>
+  
+  
+  
+  {/* answer divs */}
+      <Draggable
+        // style={{ left: left + Math.floor(Math.random() * (right *.8) ), top: Math.floor(Math.random() * adjustedH) }}
+        style={{ left: rightPosition(), top: Math.floor(Math.random() * adjustedH) }}
+      >
+        <div style={{ backgroundColor: '#7a1fb2' }}>Answer 1</div>
+      </Draggable>
+  
+      <Draggable 
+        style={{ left: rightPosition(), top: Math.floor(Math.random() * adjustedH) }}
+      >
+      <div style={{ backgroundColor: '#e928a9'}}>Answer 2</div>
+      </Draggable>  
+  
+    </main>
+  );
+  
+} else if (h > w) {
+  
+  Multiple = () => (
+    <main>
+  
+  
+      <Draggable onDragStart={(rect) => { console.log('onDragStart => ', rect) }} 
+      style={{left: Math.floor(Math.random() * adjustedW), top: topPosition()
+      }}
+      >
+        <div>question 1</div>
+      </Draggable>
+  
+      <Draggable
+        style={{ left: Math.floor(Math.random() * adjustedW), top: topPosition()
+        }}
+      >
+        <div style={{ backgroundColor: '#2196f3' }}>question 2</div>
+      </Draggable>
+  
+      <Draggable
+        style={{ left: Math.floor(Math.random() * adjustedW), top: topPosition()
+        }}
+      >
+        <div style={{ backgroundColor: '#1fb230' }}>question 3</div>
+      </Draggable>
+  
+  
+  
+  {/* answer divs */}
+      <Draggable
+        // style={{ left: left + Math.floor(Math.random() * (right *.8) ), top: Math.floor(Math.random() * adjustedH) }}
+        style={{ left: Math.floor(Math.random() * adjustedW), top: bottomPosition()
+        }}
+      >
+        <div style={{ backgroundColor: '#7a1fb2' }}>Answer 1</div>
+      </Draggable>
+  
+      <Draggable 
+        style={{ left: Math.floor(Math.random() * adjustedW), top: bottomPosition()
+        }}
+      >
+      <div style={{ backgroundColor: '#e928a9'}}>Answer 2</div>
+      </Draggable>  
+  
+    </main>
+  );
+}
 
 export default Multiple;
-
-// const style1 = horizontal format
-// const style2 = vertical format
-// if (h > w) { style1 } else if (w > h) { style2}
